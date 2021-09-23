@@ -6,4 +6,18 @@
     <div>Дата: {{ currentDate }}</div>
     <div>Класс: {{ className }}</div>
     <div>Метод: {{ functionName }}</div>
+
+    <div class="container">
+        <h1 class="mt-5 mb-4">{{ trailers | length }} iTunes Movie trailers</h1>
+        <div class="table table-bordered">
+            {% for trailer in trailers %}
+                <div>
+                    <div>
+                        <img src="{{ trailer.image }}">
+                        <a href="{{ trailer.link }}">{{ trailer.title }}</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 {% endblock %}

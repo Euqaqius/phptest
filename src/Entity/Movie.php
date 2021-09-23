@@ -7,7 +7,8 @@ use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=MovieRepository::class)
+ * @ORM\Table(name="movie")
+ * @ORM\Entity(repositoryClass="App\Repository\MovieRepository")
  */
 class Movie
 {
@@ -29,7 +30,7 @@ class Movie
     private ?string $link;
 
     /**
-     * @ORM\Column(type="text", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private ?string $description;
 
