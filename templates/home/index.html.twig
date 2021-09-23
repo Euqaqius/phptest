@@ -14,7 +14,7 @@
                 <div>
                     <div class="my_single_trailer">
                         <img src="{{ trailer.image }}">
-                        <a href="{{ trailer.link }}">{{ trailer.title }}</a>
+                        <a href="{{ path('trailer', {'id': trailer.id}) }}">{{ trailer.title }}</a>
                     </div>
                 </div>
             {% endfor %}

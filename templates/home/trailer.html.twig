@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ trailer.title }}{% endblock %}
+
+{% block body %}
+    <div class="my_single_trailer">
+        <div>{{ trailer.title }}</div>
+        <div><img src="{{ trailer.image }}"></div>
+        <div>{{ trailer.description }}</div>
+        <div><a href="{{ trailer.link }}">Источник</a></div>
+        <div><a href="/">Вернуться</a></div>
+    </div>
+{% endblock %}
