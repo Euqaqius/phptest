@@ -1,0 +1,11 @@
+.my_container {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+.my_single_trailer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+}

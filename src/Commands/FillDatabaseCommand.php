@@ -2,17 +2,19 @@
 
 namespace App\Commands;
 
+use App\Repository\MovieRepository;
 use App\Utils\Fetcher\XmlFetcher;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class FillDatabaseCommand extends Command
 {
+    const LIMIT = 10;
+
     public function __construct(
         private XmlFetcher $xmlFetcher,
-        private EntityManagerInterface $em,
+        private MovieRepository $movieRepository,
     ) {
         parent::__construct();
     }
@@ -27,10 +29,11 @@ class FillDatabaseCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        //$this->em->createQuery('DELETE App/Entity/Movie')->execute();
+        $countDeleted = $this->movieRepository->clearingTables();
+        $output->writeln('Total deleted: ' . $countDeleted);
 
-        $count = $this->xmlFetcher->loadXml();
-        $output->writeln('Total loaded: ' . $count);
+        $countLoaded = $this->xmlFetcher->loadXml();
+        $output->writeln('Total loaded: ' . $countLoaded);
 
         return Command::SUCCESS;
     }

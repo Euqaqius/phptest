@@ -2,6 +2,7 @@
 
 namespace App\Utils\Loader;
 
+use App\Commands\FillDatabaseCommand;
 use App\Entity\Movie;
 use App\Utils\Parsers\XmlParser;
 use DateTime;
@@ -34,6 +35,9 @@ class MovieLoader
             $this->em->persist($movie);
 
             $count++;
+            if ($count === FillDatabaseCommand::LIMIT) {
+                break;
+            }
         }
 
         $this->em->flush();
