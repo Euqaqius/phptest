@@ -23,8 +23,7 @@ class FillDatabaseCommand extends Command
     protected function configure(): void
     {
         $this->setName(static::$defaultName)
-            ->setDescription('Get count by field')
-            ->setHelp('Write type, field and value');
+            ->setDescription('Fill database');
     }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
